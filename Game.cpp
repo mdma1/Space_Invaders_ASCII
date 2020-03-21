@@ -4,8 +4,8 @@ void gameLogic(Game& game, Player& player, vector < Alien >& aliens, CommandAlie
 {
 	inputControls(game, player, aliens, playerBullet, alienBullet);
 	playerShooting(playerBullet);
-	if (game.timeCounter % game.aliensSpeed == 0) aliensMovement(game, aliens);
-	if (game.timeCounter % 2 == 0) aliensShooting(player, aliens, alienBullet);
+	if (game.timeCounter % game.alienSpeed == 0) alienMovement(game, aliens);
+	if (game.timeCounter % 2 == 0) alienShooting(player, aliens, alienBullet);
 	if (game.timeCounter % 670 == 669 && game.alienCounter > 22) initializeCommandAlien(game, commandAlien);
 	if (commandAlien.isAlive && game.timeCounter % 3 == 0) commandAlienMovement(game, commandAlien);
 	alienHitCheck(game, player, aliens, playerBullet);
@@ -29,8 +29,8 @@ void resetGame(Game& game, Player& player, vector < Alien >& aliens, CommandAlie
 	game.timeCounter = 0;
 	game.level++;
 	game.alienCounter = 55;
-	game.aliensSpeed = 55;
-	game.aliensDirection = 1;
+	game.alienSpeed = 55;
+	game.alienDirection = 1;
 	commandAlien.isAlive = false;
 
 	if (alienBullet.fire) {
@@ -39,9 +39,9 @@ void resetGame(Game& game, Player& player, vector < Alien >& aliens, CommandAlie
 		alienBullet.fire = false;
 	}
 
-	if (game.level == 2) game.aliensStage += 3;
-	if (game.level == 3) game.aliensStage += 2;
-	if (game.level == 4 || game.level == 7) game.aliensStage++;
+	if (game.level == 2) game.alienStage += 3;
+	if (game.level == 3) game.alienStage += 2;
+	if (game.level == 4 || game.level == 7) game.alienStage++;
 
 	blocks.clear();
 	aliens.clear();
@@ -69,9 +69,9 @@ void startGame(Game& game, Player& player, vector < Alien >& aliens, CommandAlie
 	game.score = 0;
 	game.level = 1;
 	game.alienCounter = 55;
-	game.aliensStage = 16;
-	game.aliensSpeed = 55;
-	game.aliensDirection = 1;
+	game.alienStage = 16;
+	game.alienSpeed = 55;
+	game.alienDirection = 1;
 	player.pos.x = 1;
 	commandAlien.isAlive = false;
 	playerBullet.fire = false;
