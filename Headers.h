@@ -35,8 +35,8 @@ void inputControls(Game& game, Player& player, vector < Alien >& aliens, Bullet&
 void playerShooting(Bullet& playerBullet);
 void initializeBlocks(vector < Block >& blocks);
 void initializeAliens(Game& game, vector < Alien >& aliens);
-void aliensMovement(Game& game, vector < Alien >& aliens);
-void aliensShooting(Player& player, vector < Alien >& aliens, Bullet& enemyBullet);
+void alienMovement(Game& game, vector < Alien >& aliens);
+void alienShooting(Player& player, vector < Alien >& aliens, Bullet& enemyBullet);
 void initializeCommandAlien(Game& game, CommandAlien& commandAlien);
 void commandAlienMovement(Game& game, CommandAlien& commandAlien);
 
