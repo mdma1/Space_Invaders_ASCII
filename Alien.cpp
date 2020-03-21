@@ -12,7 +12,7 @@ void initializeAliens(Game& game, vector < Alien >& aliens)
 			if (i == 2 || i == 3) temp->type = 2;
 			if (i == 4) temp->type = 3;
 			temp->pos.x = j * 4 + 6;
-			temp->pos.y = game.aliensStage - i * 2;
+			temp->pos.y = game.alienStage - i * 2;
 			aliens.push_back(*temp);
 		}
 	}
@@ -27,7 +27,7 @@ void initializeAliens(Game& game, vector < Alien >& aliens)
 	}
 }
 
-void aliensMovement(Game& game, vector < Alien >& aliens)
+void alienMovement(Game& game, vector < Alien >& aliens)
 {
 	//cleaning aliens
 	vector < Alien > ::iterator alienIterator;
@@ -38,23 +38,23 @@ void aliensMovement(Game& game, vector < Alien >& aliens)
 		}
 	}
 
-	//aliens movement
+	//alien movement
 	for (alienIterator = aliens.begin(); alienIterator != aliens.end(); alienIterator++) {
 		if (alienIterator->pos.x <= 2 && alienIterator->isAlive) {
-			game.aliensDirection = 1;
+			game.alienDirection = 1;
 			vector < Alien > ::iterator e;
 			for (e = aliens.begin(); e != aliens.end(); e++) e->pos.y++;
 			break;
 		}
 		if (alienIterator->pos.x >= 50 && alienIterator->isAlive) {
-			game.aliensDirection = -1;
+			game.alienDirection = -1;
 			vector < Alien > ::iterator e;
 			for (e = aliens.begin(); e != aliens.end(); e++) e->pos.y++;
 			break;
 		}
 	}
 	for (alienIterator = aliens.begin(); alienIterator != aliens.end(); alienIterator++) {
-		alienIterator->pos.x += game.aliensDirection;
+		alienIterator->pos.x += game.alienDirection;
 	}
 
 	//drawing aliens
@@ -66,7 +66,7 @@ void aliensMovement(Game& game, vector < Alien >& aliens)
 	}
 }
 
-void aliensShooting(Player& player, vector < Alien >& aliens, Bullet& alienBullet)
+void alienShooting(Player& player, vector < Alien >& aliens, Bullet& alienBullet)
 {
 	if (alienBullet.fire) {
 		setPosition(alienBullet.pos.x, alienBullet.pos.y);
