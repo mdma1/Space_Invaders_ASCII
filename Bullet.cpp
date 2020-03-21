@@ -37,7 +37,7 @@ void alienHitCheck(Game& game, Player& player, vector < Alien >& aliens, Bullet&
 			}
 
 			game.alienCounter--;
-			game.aliensSpeed = game.alienCounter;
+			game.alienSpeed = game.alienCounter;
 			game.score += 10 * alienIterator->type;
 
 			setPosition(alienIterator->pos.x - 1, alienIterator->pos.y);
