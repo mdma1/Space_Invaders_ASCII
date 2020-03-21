@@ -14,8 +14,8 @@ struct Game {
 	int score;
 	int level;
 	int alienCounter;
-	int aliensStage;
-	int aliensSpeed;
-	int aliensDirection;
+	int alienStage;
+	int alienSpeed;
+	int alienDirection;
 	int commandAlienDirection;
 };
